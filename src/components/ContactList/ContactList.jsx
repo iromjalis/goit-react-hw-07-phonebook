@@ -1,9 +1,4 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import {
-  deleteContact,
-  contactFetch,
-} from "../../redux/phonebook/phonebook-operations";
 import Button from "@mui/material/Button";
 import s from "./ContactList.module.css";
 
