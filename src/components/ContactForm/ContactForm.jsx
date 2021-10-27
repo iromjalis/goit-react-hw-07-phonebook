@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import shortid from "shortid";
 import { connect } from "react-redux";
-import { addContact } from "../../redux/phonebook/phonebook-actions.js";
+import { addContact } from "../../redux/phonebook/phonebook-operations";
 
 import css from "./ContactForm.module.css";
 import ContactFormName from "./ContactFormName";
@@ -9,14 +9,13 @@ import ContactFormNumber from "./ContactFormNumber";
 
 import Button from "@mui/material/Button";
 
-function ContactForm({ phonebookContacts, onSubmit }) {
+function ContactForm({ contacts, onSubmit }) {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
 
   const nameInputId = shortid.generate();
   const numberInputId = shortid.generate();
 
-  //onChangeInput
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -33,7 +32,7 @@ function ContactForm({ phonebookContacts, onSubmit }) {
         return;
     }
   };
-  //onSubmitForm
+  // onSetName={handleSetName}
   const handleSubmit = (e) => {
     e.preventDefault();
 
