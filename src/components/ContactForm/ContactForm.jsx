@@ -37,6 +37,8 @@ function ContactForm({ contacts, onSubmit }) {
     e.preventDefault();
 
     onSubmit(name, number);
+    console.log("number: ", number);
+    console.log("name: ", name);
 
     setName("");
     setNumber("");
@@ -59,7 +61,7 @@ function ContactForm({ contacts, onSubmit }) {
         className="FormNumber"
       />
       <p>
-        <Button variant="outlined" type="button">
+        <Button variant="outlined" type="submit">
           Send
         </Button>
       </p>
@@ -71,7 +73,7 @@ const mapStateToProps = ({ contacts: { phonebookContacts } }) =>
   phonebookContacts;
 
 const mapDispatchToProps = (dispatch) => ({
-  onSubmit: (name, number) => dispatch(addContact(name, number)),
+  onSubmit: (contact) => dispatch(addContact(contact)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);
